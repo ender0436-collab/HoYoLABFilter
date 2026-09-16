@@ -1,0 +1,342 @@
+:root {
+
+    --bg: #f5f7fb;
+    --card: #ffffff;
+
+    --text: #2c3e50;
+    --subtext: #6c7a89;
+
+    --border: #e5e8ef;
+
+    --primary: #4d7cff;
+    --primary-hover: #3a6ef7;
+
+    --shadow:
+        0 4px 16px rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+/* ダークモード */
+
+body.dark {
+
+    --bg: #1a1b1f;
+    --card: #24262c;
+
+    --text: #f2f3f5;
+    --subtext: #b6bcc7;
+
+    --border: #363942;
+
+    --primary: #5d85ff;
+    --primary-hover: #7093ff;
+
+    --shadow:
+        0 4px 16px rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+}
+
+* {
+
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    width: 360px;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        "Yu Gothic UI",
+        sans-serif;
+}
+
+.app {
+
+    padding: 14px;
+}
+
+/* Header */
+
+.header {
+
+    margin-bottom: 14px;
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.logo__icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 22px;
+
+    box-shadow: var(--shadow);
+}
+
+.logo__title {
+
+    font-weight: 700;
+
+    font-size: 15px;
+}
+
+.logo__subtitle {
+
+    font-size: 12px;
+
+    color: var(--subtext);
+
+    margin-top: 2px;
+}
+
+/* Card */
+
+.card {
+
+    background: var(--card);
+
+    border: 1px solid
+        var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+}
+
+.card__title {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    color: var(--text);
+}
+
+/* Input */
+
+.input-row {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.input-row input {
+
+    flex: 1;
+
+    height: 38px;
+
+    border-radius: 10px;
+
+    border: 1px solid
+        var(--border);
+
+    background: var(--card);
+
+    color: var(--text);
+
+    padding:
+        0
+        12px;
+
+    outline: none;
+
+    transition:
+        border-color .15s,
+        box-shadow .15s;
+}
+
+.input-row input:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            77,
+            124,
+            255,
+            0.20
+        );
+}
+
+.input-row input::placeholder {
+
+    color: var(--subtext);
+}
+
+/* Buttons */
+
+.btn-primary {
+
+    min-width: 72px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .15s,
+        transform .15s;
+}
+
+.btn-primary:hover {
+
+    background:
+        var(--primary-hover);
+}
+
+.btn-primary:active {
+
+    transform:
+        scale(.97);
+}
+
+/* Footer */
+
+.footer {
+
+    margin-top: 12px;
+}
+
+.btn-settings {
+
+    width: 100%;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text);
+
+    font-weight: 600;
+
+    transition:
+        background .15s,
+        transform .15s;
+}
+
+.btn-settings:hover {
+
+    background:
+        rgba(
+            77,
+            124,
+            255,
+            0.08
+        );
+}
+
+.btn-settings:active {
+
+    transform:
+        scale(.98);
+}
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 12px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        8px 14px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    transition:
+        opacity .2s;
+
+    z-index: 9999;
+}
+
+.toast.success {
+
+    background:
+        #34c759;
+}
+
+.toast.info {
+
+    background:
+        #4d7cff;
+}

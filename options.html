@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+<title>
+HoYoLAB Filter - 設定
+</title>
+
+<link
+    rel="stylesheet"
+    href="options.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="header">
+
+        <div class="header__left">
+
+            <div class="div>
+
+            <div>
+
+                <h1>
+                    HoYoLAB Filter
+                </h1>
+
+                <p>
+                    設定
+                </p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- タブ -->
+
+    <nav class="tabs">
+
+        <button
+            class="tab active"
+            data-tab="words">
+
+            ワード
+
+        </button>
+
+        <button
+            class="tab"
+            data-tab="users">
+
+            ユーザーID
+
+        </button>
+
+        <button
+            class="tab"
+            data-tab="tags">
+
+            タグ
+
+        </button>
+
+        <button
+            class="tab"
+            data-tab="settings">
+
+            設定
+
+        </button>
+
+    </nav>
+
+    <!-- ワード -->
+
+    <section
+        id="tab-words"
+        class="tab-content active">
+
+        <div class="section-header">
+
+            <h2>
+                NGワード
+            </h2>
+
+            <div
+                id="wordCount"
+                class="count">
+
+                0件
+
+            </div>
+
+        </div>
+
+        <div class="input-row">
+
+            <input
+                id="newWord"
+                type="text"
+                placeholder="NGワードを追加">
+
+            <button
+                id="addWord">
+
+                追加
+
+            </button>
+
+        </div>
+
+        <div
+            id="wordList"
+            class="item-list">
+
+        </div>
+
+    </section>
+
+    <!-- ユーザー -->
+
+    <section
+        id="tab-users"
+        class="tab-content">
+
+        <div class="section-header">
+
+            <h2>
+                NGユーザーID
+            </h2>
+
+            <div
+                id="userCount"
+                class="count">
+
+                0件
+
+            </div>
+
+        </div>
+
+        <div class="input-row">
+
+            <input
+                id="newUser"
+                type="text"
+                placeholder="169471685">
+
+            <button
+                id="addUser">
+
+                追加
+
+            </button>
+
+        </div>
+
+        <div
+            id="userList"
+            class="item-list">
+
+        </div>
+
+    </section>
+
+    <!-- タグ -->
+
+    <section
+        id="tab-tags"
+        class="tab-content">
+
+        <div class="section-header">
+
+            <h2>
+                NGタグ
+            </h2>
+
+            <div
+                id="tagCount"
+                class="count">
+
+                0件
+
+            </div>
+
+        </div>
+
+        <div class="input-row">
+
+            <input
+                id="newTag"
+                type="text"
+                placeholder="スカーク">
+
+            <button
+                id="addTag">
+
+                追加
+
+            </button>
+
+        </div>
+
+        <div
+            id="tagList"
+            class="item-list">
+
+        </div>
+
+    </section>
+
+    <!-- 設定 -->
+
+    <section
+        id="tab-settings"
+        class="tab-content">
+
+        <div class="settings-card">
+
+            <h2>
+
+                一般設定
+
+            </h2>
+
+            <label
+                class="switch-row">
+
+                <span>
+
+                    ダークモード
+
+                </span>
+
+                <input
+                    type="checkbox"
+                    id="darkMode">
+
+            </label>
+
+        </div>
+
+        <div class="settings-card">
+
+            <h2>
+
+                NG件数
+
+            </h2>
+
+            <div class="stats">
+
+                <div>
+
+                    ワード
+
+                    <span
+                      id="statWords">
+
+                      0
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    ユーザー
+
+                    <span
+                      id="statUsers">
+
+                      0
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    タグ
+
+                    <span
+                      id="statTags">
+
+                      0
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    総計
+
+                    <span
+                      id="statTotal">
+
+                      0
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="settings-card">
+
+            <h2>
+
+                バックアップ
+
+            </h2>
+
+            <div class="actions">
+
+                <button
+                    id="exportSettings"
+                    class="action-btn">
+
+                    エクスポート
+
+                </button>
+
+                <button
+                    id="importSettings"
+                    class="action-btn">
+
+                    インポート
+
+                </button>
+
+                <input
+                    type="file"
+                    id="importFile"
+                    hidden>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="options.js"></script>
+
+</body>
+</html>

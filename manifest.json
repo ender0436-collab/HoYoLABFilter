@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+
+  "name": "HoYoLAB Filter",
+  "short_name": "HoYoLAB Filter",
+
+  "version": "1.0.0",
+
+  "description": "HoYoLABの投稿をNGワード・NGユーザー・NGタグでフィルタリングします。",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://www.hoyolab.com/*"
+  ],
+
+  "action": {
+    "default_title": "HoYoLAB Filter",
+    "default_popup": "popup.html"
+  },
+
+  "options_page": "options.html",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.hoyolab.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+}

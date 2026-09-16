@@ -1,0 +1,110 @@
+/* 投稿者用 */
+
+.hyl-ng-user-btn {
+
+    margin-left: 8px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 3px 10px;
+
+    min-width: 32px;
+
+    height: 22px;
+
+    background: #ff6b81;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s,
+        background .15s,
+        box-shadow .15s;
+
+    box-shadow:
+        0 2px 8px rgba(
+            255,
+            107,
+            129,
+            .35
+        );
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    vertical-align: middle;
+}
+
+.hyl-ng-user-btn:hover {
+
+    background: #ff4d6d;
+
+    transform:
+        translateY(-1px);
+}
+
+.hyl-ng-user-btn:active {
+
+    transform:
+        scale(.96);
+}
+
+/* タグ用 */
+
+.hyl-ng-tag-btn {
+
+    margin-left: 4px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 0 6px;
+
+    height: 18px;
+
+    background: #ff6b81;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s,
+        background .15s;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.hyl-ng-tag-btn:hover {
+
+    background: #ff4d6d;
+
+    transform:
+        translateY(-1px);
+}
+
+.hyl-ng-tag-btn:active {
+
+    transform:
+        scale(.96);
+}
