@@ -116,7 +116,12 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: var(--primary);
+    background:
+        linear-gradient(
+            135deg,
+            #6aa9ff,
+            #4d7cff
+        );
 
     color: white;
 
@@ -161,8 +166,7 @@ body {
     border: none;
 
     padding:
-        10px
-        18px;
+        10px 18px;
 
     border-radius: 999px;
 
@@ -179,7 +183,7 @@ body {
         var(--border);
 
     transition:
-        0.2s;
+        .2s;
 }
 
 .tab:hover {
@@ -188,13 +192,18 @@ body {
         var(--primary);
 }
 
+.tab:active {
+
+    transform:
+        scale(.97);
+}
+
 .tab.active {
 
     background:
         var(--primary);
 
-    color:
-        white;
+    color: white;
 
     border-color:
         var(--primary);
@@ -243,12 +252,10 @@ body {
     background:
         var(--primary);
 
-    color:
-        white;
+    color: white;
 
     padding:
-        5px
-        12px;
+        5px 12px;
 
     border-radius:
         999px;
@@ -277,6 +284,8 @@ body {
 
     height: 42px;
 
+    font-size: 14px;
+
     border-radius: 12px;
 
     border:
@@ -290,13 +299,12 @@ body {
         var(--text);
 
     padding:
-        0
-        14px;
+        0 14px;
 
     outline: none;
 
     transition:
-        0.2s;
+        .2s;
 }
 
 .input-row input:focus {
@@ -314,6 +322,19 @@ body {
         );
 }
 
+body.dark
+.input-row input:focus {
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            93,
+            133,
+            255,
+            .25
+        );
+}
+
 .input-row button {
 
     min-width: 90px;
@@ -327,13 +348,12 @@ body {
     background:
         var(--primary);
 
-    color:
-        white;
+    color: white;
 
     font-weight: 600;
 
     transition:
-        0.2s;
+        .2s;
 }
 
 .input-row button:hover {
@@ -367,8 +387,7 @@ body {
     border-radius: 14px;
 
     padding:
-        12px
-        16px;
+        12px 16px;
 
     display: flex;
 
@@ -409,11 +428,9 @@ body {
     color:
         var(--danger);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    font-size:
-        18px;
+    font-size: 18px;
 
     transition:
         .15s;
@@ -424,8 +441,13 @@ body {
     background:
         var(--danger);
 
-    color:
-        white;
+    color: white;
+}
+
+.delete-btn:active {
+
+    transform:
+        scale(.92);
 }
 
 /* -------------------------------- */
@@ -457,6 +479,8 @@ body {
 .settings-card h2 {
 
     margin-top: 0;
+
+    margin-bottom: 16px;
 }
 
 /* -------------------------------- */
@@ -517,6 +541,15 @@ body {
 
     font-weight:
         600;
+
+    transition:
+        transform .15s;
+}
+
+.stats div:hover {
+
+    transform:
+        translateY(-2px);
 }
 
 .stats span {
@@ -540,6 +573,14 @@ body {
 
 .action-btn {
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
     border: none;
 
     border-radius: 12px;
@@ -549,18 +590,17 @@ body {
     background:
         var(--primary);
 
-    color:
-        white;
+    color: white;
 
-    font-weight:
-        600;
+    font-size: 14px;
+
+    font-weight: 600;
 
     padding:
-        10px
-        18px;
+        10px 18px;
 
     transition:
-        0.2s;
+        .2s;
 }
 
 .action-btn:hover {
@@ -573,9 +613,7 @@ body {
 /* Responsive */
 /* -------------------------------- */
 
-@media (
-    max-width: 700px
-) {
+@media (max-width: 700px) {
 
     .app {
 
@@ -590,6 +628,7 @@ body {
     .input-row button {
 
         width: 100%;
+
         height: 42px;
     }
 
