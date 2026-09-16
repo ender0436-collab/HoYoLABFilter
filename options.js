@@ -31,8 +31,33 @@ async function initialize() {
 
     initializeImportExport();
 
+    const savedTab =
+        localStorage.getItem(
+            "activeTab"
+        ) || "words";
+
+    switchTab(savedTab);
+
     render();
 }
+
+/* -------------------------
+   ストレージ同期
+------------------------- */
+
+chrome.storage.onChanged.addListener(
+    async () => {
+
+        settings =
+            await chrome.storage.sync.get(
+                DEFAULT_SETTINGS
+            );
+
+        applyTheme();
+
+        render();
+    }
+);
 
 /* -------------------------
    タブ
@@ -61,6 +86,11 @@ function initializeTabs() {
 
 function switchTab(name) {
 
+    localStorage.setItem(
+        "activeTab",
+        name
+    );
+
     document
         .querySelectorAll(".tab")
         .forEach(tab => {
@@ -83,13 +113,17 @@ function switchTab(name) {
             );
         });
 
-    document
-        .getElementById(
+    const activeContent =
+        document.getElementById(
             `tab-${name}`
-        )
-        .classList.add(
+        );
+
+    if (activeContent) {
+
+        activeContent.classList.add(
             "active"
         );
+    }
 }
 
 /* -------------------------
@@ -131,7 +165,7 @@ function applyTheme() {
 }
 
 /* -------------------------
-   リスト
+   リスト初期化
 ------------------------- */
 
 function initializeLists() {
@@ -154,6 +188,10 @@ function initializeLists() {
         "ngTags"
     );
 }
+
+/* -------------------------
+   共通追加
+------------------------- */
 
 function setupAddControl(
     inputId,
@@ -200,6 +238,42 @@ function setupAddControl(
     );
 }
 
+/* -------------------------
+   値正規化
+------------------------- */
+
+function normalizeValue(
+    value,
+    key
+) {
+
+    value =
+        value.trim();
+
+    if (
+        key ===
+        "ngUsers"
+    ) {
+
+        const match =
+            value.match(
+                /id=(\d+)/
+            );
+
+        if (match) {
+
+            value =
+                match[1];
+        }
+    }
+
+    return value;
+}
+
+/* -------------------------
+   追加
+------------------------- */
+
 async function addItem(
     inputId,
     key
@@ -210,19 +284,27 @@ async function addItem(
             inputId
         );
 
-    const value =
-        input.value.trim();
+    let value =
+        normalizeValue(
+            input.value,
+            key
+        );
 
     if (!value) {
         return;
     }
 
-    if (
-        settings[key].includes(
-            value
-        )
-    ) {
+    const exists =
+        settings[key].some(
+            item =>
+                item.toLowerCase() ===
+                value.toLowerCase()
+        );
+
+    if (exists) {
+
         input.select();
+
         return;
     }
 
@@ -238,6 +320,10 @@ async function addItem(
 
     input.focus();
 }
+
+/* -------------------------
+   削除
+------------------------- */
 
 async function removeItem(
     key,
@@ -422,7 +508,7 @@ async function saveSettings() {
 }
 
 /* -------------------------
-   インポート
+   インポート / エクスポート
 ------------------------- */
 
 function initializeImportExport() {
@@ -530,13 +616,35 @@ async function importSettings(
             );
 
         settings = {
-            ...DEFAULT_SETTINGS,
-            ...imported
+
+            ngWords:
+                Array.isArray(
+                    imported.ngWords
+                )
+                ? imported.ngWords
+                : [],
+
+            ngUsers:
+                Array.isArray(
+                    imported.ngUsers
+                )
+                ? imported.ngUsers
+                : [],
+
+            ngTags:
+                Array.isArray(
+                    imported.ngTags
+                )
+                ? imported.ngTags
+                : [],
+
+            darkMode:
+                !!imported.darkMode
         };
 
         await saveSettings();
 
-        initializeTheme();
+        applyTheme();
 
         render();
 
@@ -550,4 +658,6 @@ async function importSettings(
             "設定ファイルを読み込めませんでした"
         );
     }
+
+    event.target.value = "";
 }
