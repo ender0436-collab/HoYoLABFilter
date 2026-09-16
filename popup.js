@@ -7,6 +7,8 @@ const DEFAULT_SETTINGS = {
 
 let settings = {};
 
+let toastTimer;
+
 /* -------------------------
    初期化
 ------------------------- */
@@ -54,25 +56,31 @@ async function initialize() {
 }
 
 /* -------------------------
+   ストレージ同期
+------------------------- */
+
+chrome.storage.onChanged.addListener(
+    async () => {
+
+        settings =
+            await chrome.storage.sync.get(
+                DEFAULT_SETTINGS
+            );
+
+        applyTheme();
+    }
+);
+
+/* -------------------------
    テーマ
 ------------------------- */
 
 function applyTheme() {
 
-    if (
+    document.body.classList.toggle(
+        "dark",
         settings.darkMode
-    ) {
-
-        document.body.classList.add(
-            "dark"
-        );
-    }
-    else {
-
-        document.body.classList.remove(
-            "dark"
-        );
-    }
+    );
 }
 
 /* -------------------------
@@ -136,6 +144,38 @@ function setupAddButton(
 }
 
 /* -------------------------
+   値正規化
+------------------------- */
+
+function normalizeValue(
+    value,
+    key
+) {
+
+    value =
+        value.trim();
+
+    if (
+        key ===
+        "ngUsers"
+    ) {
+
+        const match =
+            value.match(
+                /id=(\d+)/
+            );
+
+        if (match) {
+
+            value =
+                match[1];
+        }
+    }
+
+    return value;
+}
+
+/* -------------------------
    項目追加
 ------------------------- */
 
@@ -149,8 +189,11 @@ async function addItem(
             inputId
         );
 
-    const value =
-        input.value.trim();
+    let value =
+        normalizeValue(
+            input.value,
+            key
+        );
 
     if (!value) {
 
@@ -234,10 +277,10 @@ function showMessage(
         "1";
 
     clearTimeout(
-        toast._timer
+        toastTimer
     );
 
-    toast._timer =
+    toastTimer =
         setTimeout(() => {
 
             toast.style.opacity =
@@ -245,6 +288,10 @@ function showMessage(
 
         }, 2000);
 }
+
+/* -------------------------
+   通知ラッパー
+------------------------- */
 
 function showSuccess(
     message
@@ -265,3 +312,4 @@ function showInfo(
         "info"
     );
 }
+``
