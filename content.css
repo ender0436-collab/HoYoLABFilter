@@ -1,6 +1,12 @@
-/* 投稿者用 */
+/* -------------------------------- */
+/* 投稿ユーザー */
+/* コメントユーザー */
+/* リプライユーザー */
+/* -------------------------------- */
 
-.hyl-ng-user-btn {
+.hyl-ng-user-btn,
+.hyl-comment-user-btn,
+.hyl-reply-user-btn {
 
     margin-left: 6px;
 
@@ -18,14 +24,17 @@
 
     line-height: 1;
 
+    vertical-align: middle;
+
     transition:
         transform .15s,
-        color .15s;
-
-    vertical-align: middle;
+        color .15s,
+        opacity .15s;
 }
 
-.hyl-ng-user-btn:hover {
+.hyl-ng-user-btn:hover,
+.hyl-comment-user-btn:hover,
+.hyl-reply-user-btn:hover {
 
     color: #ef4444;
 
@@ -33,13 +42,26 @@
         scale(1.1);
 }
 
-.hyl-ng-user-btn:active {
+.hyl-ng-user-btn:active,
+.hyl-comment-user-btn:active,
+.hyl-reply-user-btn:active {
 
     transform:
         scale(.92);
 }
 
-/* タグ用 */
+.hyl-ng-user-btn:disabled,
+.hyl-comment-user-btn:disabled,
+.hyl-reply-user-btn:disabled {
+
+    opacity: .5;
+
+    cursor: default;
+}
+
+/* -------------------------------- */
+/* NGタグ */
+/* -------------------------------- */
 
 .hyl-ng-tag-btn {
 
@@ -61,7 +83,8 @@
 
     transition:
         transform .15s,
-        color .15s;
+        color .15s,
+        opacity .15s;
 }
 
 .hyl-ng-tag-btn:hover {
@@ -76,4 +99,11 @@
 
     transform:
         scale(.92);
+}
+
+.hyl-ng-tag-btn:disabled {
+
+    opacity: .5;
+
+    cursor: default;
 }
