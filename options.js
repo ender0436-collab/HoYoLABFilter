@@ -614,6 +614,27 @@ async function importSettings(
             JSON.parse(
                 text
             );
+        
+        const confirmed =
+    confirm(
+`設定をインポートします。
+
+現在登録されている内容はすべて上書きされます。
+
+・NGワード
+・NGユーザー
+・NGタグ
+・ダークモード設定
+
+よろしいですか？`
+    );
+
+if (!confirmed) {
+
+    event.target.value = "";
+
+    return;
+}
 
         settings = {
 
