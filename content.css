@@ -2,62 +2,41 @@
 
 .hyl-ng-user-btn {
 
-    margin-left: 8px;
+    margin-left: 6px;
 
     border: none;
 
-    border-radius: 999px;
+    background: transparent;
 
-    padding: 3px 10px;
+    color: #ff5a5f;
 
-    min-width: 32px;
-
-    height: 22px;
-
-    background: #ff6b81;
-
-    color: white;
-
-    font-size: 11px;
-
-    font-weight: 700;
+    font-size: 15px;
 
     cursor: pointer;
 
+    padding: 0;
+
+    line-height: 1;
+
     transition:
         transform .15s,
-        background .15s,
-        box-shadow .15s;
-
-    box-shadow:
-        0 2px 8px rgba(
-            255,
-            107,
-            129,
-            .35
-        );
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
+        color .15s;
 
     vertical-align: middle;
 }
 
 .hyl-ng-user-btn:hover {
 
-    background: #ff4d6d;
+    color: #ef4444;
 
     transform:
-        translateY(-1px);
+        scale(1.1);
 }
 
 .hyl-ng-user-btn:active {
 
     transform:
-        scale(.96);
+        scale(.92);
 }
 
 /* タグ用 */
@@ -68,43 +47,33 @@
 
     border: none;
 
-    border-radius: 999px;
+    background: transparent;
 
-    padding: 0 6px;
+    color: #ff5a5f;
 
-    height: 18px;
-
-    background: #ff6b81;
-
-    color: white;
-
-    font-size: 10px;
-
-    font-weight: 700;
+    font-size: 13px;
 
     cursor: pointer;
 
+    padding: 0;
+
+    line-height: 1;
+
     transition:
         transform .15s,
-        background .15s;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
+        color .15s;
 }
 
 .hyl-ng-tag-btn:hover {
 
-    background: #ff4d6d;
+    color: #ef4444;
 
     transform:
-        translateY(-1px);
+        scale(1.1);
 }
 
 .hyl-ng-tag-btn:active {
 
     transform:
-        scale(.96);
+        scale(.92);
 }
