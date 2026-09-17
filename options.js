@@ -42,6 +42,24 @@ async function initialize() {
 }
 
 /* -------------------------
+   コントロール反映
+------------------------- */
+
+function refreshControls() {
+
+    const darkModeToggle =
+        document.getElementById(
+            "darkMode"
+        );
+
+    if (darkModeToggle) {
+
+        darkModeToggle.checked =
+            settings.darkMode;
+    }
+}
+
+/* -------------------------
    ストレージ同期
 ------------------------- */
 
@@ -52,6 +70,8 @@ chrome.storage.onChanged.addListener(
             await chrome.storage.sync.get(
                 DEFAULT_SETTINGS
             );
+
+        refreshControls();
 
         applyTheme();
 
@@ -137,8 +157,7 @@ function initializeTheme() {
             "darkMode"
         );
 
-    checkbox.checked =
-        settings.darkMode;
+    refreshControls();
 
     applyTheme();
 
@@ -148,6 +167,8 @@ function initializeTheme() {
 
             settings.darkMode =
                 checkbox.checked;
+
+            refreshControls();
 
             applyTheme();
 
@@ -663,15 +684,17 @@ if (!confirmed) {
                 !!imported.darkMode
         };
 
-        await saveSettings();
+await saveSettings();
 
-        applyTheme();
+refreshControls();
 
-        render();
+applyTheme();
 
-        alert(
-            "インポートが完了しました"
-        );
+render();
+
+alert(
+    "インポートが完了しました"
+);
 
     } catch {
 
