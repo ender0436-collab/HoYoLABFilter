@@ -730,3 +730,72 @@ body.dark
         width: 100%;
     }
 }
+
+/* -------------------------------- */
+/* Project Links */
+/* -------------------------------- */
+
+.project-links {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.project-link {
+
+    flex: 1;
+
+    min-width: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6aa9ff,
+            #4d7cff
+        );
+
+    border-radius: 14px;
+
+    padding:
+        12px 16px;
+
+    font-weight: 600;
+
+    transition:
+        transform .15s,
+        opacity .15s;
+}
+
+.project-link:hover {
+
+    opacity: .92;
+
+    transform:
+        translateY(-2px);
+}
+
+.project-link:active {
+
+    transform:
+        scale(.98);
+}
+
+.project-icon {
+
+    font-size: 18px;
+}
