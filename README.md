@@ -69,5 +69,5 @@ HoYoLAB の投稿を、NGワード・NGユーザー・NGタグで非表示にで
 このプロジェクトが役に立った場合は、
 開発継続のための支援をご検討ください。
 
-- [GitHub Sponsors](https://github.com/sponsors/ender0436-collab)
+- [GitHub Sponsors](https://github.com/sponsors/finalsyamozi)
 - [☕ Buy Me a Coffee](https://buymeacoffee.com/ender0436)
